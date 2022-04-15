@@ -26,6 +26,46 @@ function PrintTable(example) {
                     d.data[d.row][d.col]=this.innerText;
                     //PlotGanntChart(d.data);
                 });
-    };
+    }
+    d3.select("#python").text("test_strategy = defaultdict(lambda: defaultdict(dict))  # So as to avoid having to specify empty dicts and defaultdicts\n" +
+        "        test_strategy.update({\n".replace(/\n/g, "<br />") +
+        "            CC.GEODICT_GEOLEVELS: levels,\n" +
+        "            CC.DPQUERIES + \"default\": (\n" +
+        "                \"sex * hhage\",\n" +
+        "                \"sex * hisp * race * hhtype_dhch\",\n" +
+        "                \"elderly * sex * hhtype_dhch\",\n" +
+        "                \"hisp * race\",\n" +
+        "                \"hhage * hhtype_dhch * sex\",\n" +
+        "                \"detailed\"),\n" +
+        "            CC.QUERIESPROP + \"default\": (tuple(Fr(num, 100) for num in (20, 20, 20, 15, 10, 10))),\n" +
+        "            # CC.DPQUERIES: {},\n" +
+        "            # CC.QUERIESPROP: {},\n" +
+        "            # CC.UNITDPQUERIES: {},\n" +
+        "            # CC.UNITQUERIESPROP: {},\n" +
+        "            # CC.VACANCYDPQUERIES: {},\n" +
+        "            # CC.VACANCYQUERIESPROP: {},\n" +
+        "        })\n" +
+        "\n" +
+        "        def queries(level):\n" +
+        "            return test_strategy[CC.DPQUERIES + \"default\"]\n" +
+        "\n" +
+        "        def allocation(level):\n" +
+        "            if level == CC.GEOLEVEL_COUNTY:\n" +
+        "                return tuple(Fr(num, 100) for num in (10, 30, 20, 15, 10, 10))\n" +
+        "            if level == CC.GEOLEVEL_TRACT:\n" +
+        "                return tuple(Fr(num, 100) for num in ( 5, 35, 20, 15, 10, 10))\n" +
+        "            if level == CC.GEOLEVEL_BLOCK_GROUP:\n" +
+        "                return tuple(Fr(num, 100) for num in ( 1, 39, 20, 15, 10, 10))\n" +
+        "            if level == CC.GEOLEVEL_BLOCK:\n" +
+        "                return tuple(Fr(num, 100) for num in (39,  1, 20, 15, 10, 10))\n" +
+        "            return test_strategy[CC.QUERIESPROP + \"default\"]\n" +
+        "\n" +
+        "        for level in test_strategy[CC.GEODICT_GEOLEVELS]:\n" +
+        "            test_strategy[CC.DPQUERIES][level] = queries(level)\n" +
+        "            test_strategy[CC.QUERIESPROP][level] = allocation(level)\n" +
+        "            test_strategy[CC.UNITDPQUERIES][level] = (\"tenvacgq\", \"vacantoccupied\", )\n" +
+        "            test_strategy[CC.UNITQUERIESPROP][level] = (Fr(4, 100), Fr(1, 100), )\n" +
+        "\n" +
+        "        return test_strategy")
     //d3.select("body").selectAll("img").data(example).enter().append("img").attr("src",function(d) {return d.Image})
-};
+}
