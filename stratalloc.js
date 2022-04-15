@@ -28,7 +28,7 @@ function PrintTable(example) {
                 });
     }
     d3.select("#python").text("test_strategy = defaultdict(lambda: defaultdict(dict))  # So as to avoid having to specify empty dicts and defaultdicts\n" +
-        "        test_strategy.update({\n".replace(/\n/g, "<br />") +
+        "        test_strategy.update({\n" +
         "            CC.GEODICT_GEOLEVELS: levels,\n" +
         "            CC.DPQUERIES + \"default\": (\n" +
         "                \"sex * hhage\",\n" +
