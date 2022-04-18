@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Query Strategy Budget Allocator</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+    </style>
 </head>
 <body>
 <script src="d3.min.js"></script>
 <h1>Query Strategy Budget Allocator</h1>
+<label for="denom">Denom:</label><input id="denom" value="100" onmouseout="PrintPythonCode(example)"><br><br>
+<!--<label for="total">Total budget:</label><input id="total"><br><br>-->
+Total budget:
+<text id="total"></text><br><br>
 <table id="example"></table>
-<div style="white-space: pre-line"><pre><code id="python"></code></pre></div>
+<div style="white-space: pre-line">
+    <pre><code id="python"></code></pre>
+</div>
 <script src="stratalloc.js"></script>
 </body>
 </html>
