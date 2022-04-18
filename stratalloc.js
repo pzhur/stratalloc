@@ -38,7 +38,7 @@ function PrintPythonCode(data) {
             if (j!=='Level') total = total + parseInt(d[j])
         }
     })
-    console.log(total)
+
     data.forEach(function (d) {
         codetext = codetext + "strategy[CC.DPQUERIES][\"" + d['Level'] + "\"] = ("
         for (var j in d)
@@ -49,7 +49,7 @@ function PrintPythonCode(data) {
     data.forEach(function (d) {
         codetext = codetext + "strategy[CC.QUERIESPROP][\"" + d['Level'] + "\"] = ("
         for (var j in d)
-            if (j!=='Level') codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '),'
+            if (j!=='Level') codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
         codetext = codetext + ")\n"
     })
 
