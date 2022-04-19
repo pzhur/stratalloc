@@ -26,9 +26,28 @@ function PrintTable(example) {
                     d.data[d.row][d.col] = this.innerText;
                     PrintPythonCode(d.data);
                 });
+		// row.append("td").append("input").attr("type", "button").attr("value", "Delete Level").data([{"row": i, "col": j, "data": example}])
+// 				.on("click", function(moevent) {
+// 					d = moevent.srcElement.__data__
+// 					lev2del = example[d['row']]['Level']
+// 					example = example.filter(level => level['Level']!==lev2del)
+// 					moevent.srcElement.parentElement.parentElement.remove()
+// 					PrintPythonCode(example);
+// 				})
     }
     PrintPythonCode(example);
 }
+
+function AddLevel(data) {
+	newlevel = {}
+	for (var j in data[0]) {
+		newlevel[j] = "None"
+	}
+	data.push(newlevel)
+	PrintTable(data)
+}
+
+
 function PrintPythonCode(data) {
     denom = document.getElementById('denom').value
     codetext = ""
