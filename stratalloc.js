@@ -35,14 +35,14 @@ function PrintPythonCode(data) {
     total = 0
     data.forEach(function(d) {
         for (var j in d) {
-            if (j!=='Level') total = total + parseInt(d[j])
+            if ((j!=='Level') && (!isNaN(parseInt(d[j])))) total = total + parseInt(d[j])
         }
     })
 
     data.forEach(function (d) {
         codetext = codetext + "strategy[CC.DPQUERIES][\"" + d['Level'] + "\"] = ("
         for (var j in d)
-            if (j!=='Level') codetext = codetext + '"' + j + '", '
+            if ((j!=='Level') && (!isNaN(parseInt(d[j])))) codetext = codetext + '"' + j + '", '
         codetext = codetext + ")\n"
     })
 
@@ -52,6 +52,8 @@ function PrintPythonCode(data) {
             if (j!=='Level') codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
         codetext = codetext + ")\n"
     })
+	
+	codetext += "\n\n" + JSON.stringify(data)
 
     document.getElementById('total').textContent = total + "/" + denom + "  (" + total / denom + ")"
     d3.select("#python").text(codetext)
