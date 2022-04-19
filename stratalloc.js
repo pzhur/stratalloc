@@ -1,16 +1,16 @@
 var example=[
-	{"Level":"State", "hhgq":"1", "cenrace":"2"},
-	{"Level":"County", "hhgq":"1", "cenrace":"2"},
-	{"Level":"Tract", "hhgq":"1", "cenrace":"2"}
+	{"Level":"State", "hhgq":"1", "cenrace":"10"},
+	{"Level":"County", "hhgq":"3", "cenrace":"2"},
+	{"Level":"Tract", "hhgq":"1", "cenrace":"6"}
 ]
 
 PrintTable(example);
 
 function PrintTable(example) {
     d3.select("#example").html("");
-    var row = d3.select("#example").append("tr");//.selectAll("th").data(d3.keys(example[0])).enter().append("th").text(function(d) {return d});
-    for (var j in example[0])
-        row.append("th").text(j);
+    var row = d3.select("#example").append("tr").selectAll("th").data(Object.keys(example[0])).enter().append("th").text(function(d) {return d});
+    // for (var j in example[0])
+    //     row.append("th").text(j);
 
     // example.forEach(function(d) {
     //     var row=d3.select("#example").append("tr");
@@ -20,20 +20,44 @@ function PrintTable(example) {
     for (var i = 0; i < example.length; i++) {
         var row = d3.select("#example").append("tr");
         for (var j in example[i])
-            row.append("td").data([{"row": i, "col": j, "data": example}]).text(example[i][j]).attr("contenteditable", true)
+            row.append("td").data([{"row": i, "col": j, "data": example}]).text(example[i][j])
+                .attr("style", function(d) {
+                    val = parseInt(example[d.row][d.col])
+                    if (isNaN(val)) return "background-color: hsl(0,100%,100%)"
+                    max = Math.max(...example.map(d => Math.max(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
+                    min = Math.min(...example.map(d => Math.min(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
+                    l = 100 - Math.round((val - min) / (max - min) * 50)
+                    return "background-color: hsl(116,40%," + l + "%)"
+                })
+                .attr("contenteditable", true)
                 .on('mouseout', function (moevent) {
                     d = moevent.fromElement.__data__
-                    d.data[d.row][d.col] = this.innerText;
-                    PrintPythonCode(d.data);
+                    example[d.row][d.col] = this.innerText;
+                    PrintTable(example);
                 });
-		// row.append("td").append("input").attr("type", "button").attr("value", "Delete Level").data([{"row": i, "col": j, "data": example}])
-// 				.on("click", function(moevent) {
-// 					d = moevent.srcElement.__data__
-// 					lev2del = example[d['row']]['Level']
-// 					example = example.filter(level => level['Level']!==lev2del)
-// 					moevent.srcElement.parentElement.parentElement.remove()
-// 					PrintPythonCode(example);
-// 				})
+		row.append("td").append("input").attr("type", "button").attr("value", "Del Lev").data([{"row": i, "col": j, "data": example}])
+				.on("click", function(moevent) {
+					d = moevent.target.__data__
+					lev2del = example[d['row']]['Level']
+					example = example.filter(level => level['Level']!==lev2del)
+					//moevent.target.parentElement.parentElement.remove()
+                    d3.select("#albutton").on('click', function (d) {AddLevel(example)})
+                    d3.select("#aqbutton").on('click', function (d) {AddQuery(example)})
+                    PrintTable(example);
+				})
+    }
+    var row = d3.select("#example").append("tr");
+    for (var j in example[0]) {
+        td = row.append("td")
+        if (j!=='Level') td.append("button").text("Del Qry").data([{"col": j}]).on("click", function(moevent) {
+           for (var i in example) {
+               d = moevent.target.__data__
+               delete example[i][d['col']]
+           }
+        d3.select("#albutton").on('click', function (d) {AddLevel(example)})
+        d3.select("#aqbutton").on('click', function (d) {AddQuery(example)})
+        PrintTable(example);
+        })
     }
     PrintPythonCode(example);
 }
@@ -45,6 +69,14 @@ function AddLevel(data) {
 	}
 	data.push(newlevel)
 	PrintTable(data)
+}
+
+function AddQuery(data) {
+    qname = document.getElementById("qname").value
+    for (var i in data) {
+        data[i][qname] = "None"
+    }
+    PrintTable(data)
 }
 
 
@@ -68,7 +100,7 @@ function PrintPythonCode(data) {
     data.forEach(function (d) {
         codetext = codetext + "strategy[CC.QUERIESPROP][\"" + d['Level'] + "\"] = ("
         for (var j in d)
-            if (j!=='Level') codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
+            if ((j!=='Level') && (!isNaN(parseInt(d[j])))) codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
         codetext = codetext + ")\n"
     })
 	
