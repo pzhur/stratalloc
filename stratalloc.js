@@ -4,11 +4,12 @@ var example=[
 	{"Level":"Tract", "hhgq":"1", "cenrace":"6"}
 ]
 
+
 PrintTable(example);
 
 function PrintTable(example) {
     d3.select("#example").html("");
-    var row = d3.select("#example").append("tr").selectAll("th").data(Object.keys(example[0])).enter().append("th").text(function(d) {return d});
+    let row = d3.select("#example").append("tr").selectAll("th").data(Object.keys(example[0])).enter().append("th").text(function(d) {return d});
     // for (var j in example[0])
     //     row.append("th").text(j);
 
@@ -18,7 +19,7 @@ function PrintTable(example) {
     //          row.append("td").text(d[j]);
     // });
     for (var i = 0; i < example.length; i++) {
-        var row = d3.select("#example").append("tr");
+        row = d3.select("#example").append("tr");
         for (var j in example[i])
             row.append("td").data([{"row": i, "col": j, "data": example}]).text(example[i][j])
                 .attr("style", function(d) {
@@ -46,7 +47,24 @@ function PrintTable(example) {
                     PrintTable(example);
 				})
     }
-    var row = d3.select("#example").append("tr");
+
+    row = d3.select("#example").append("tr");
+    for (var j in example[0]) {
+        td = row.append("td")
+        if (j!=='Level') td.attr("align", "center").append("input").attr("type", "checkbox").attr("id", "cb"+j)
+        else td.text("UnitQuery")
+            //.label("Del Qry").data([{"col": j}])
+        //     .on("click", function(moevent) {
+        //         for (var i in example) {
+        //             d = moevent.target.__data__
+        //             delete example[i][d['col']]
+        //         }
+        //         d3.select("#albutton").on('click', function (d) {AddLevel(example)})
+        //         d3.select("#aqbutton").on('click', function (d) {AddQuery(example)})
+        //         PrintTable(example);
+        // })
+    }
+    row = d3.select("#example").append("tr");
     for (var j in example[0]) {
         td = row.append("td")
         if (j!=='Level') td.append("button").text("Del Qry").data([{"col": j}]).on("click", function(moevent) {
@@ -93,7 +111,8 @@ function PrintPythonCode(data) {
     data.forEach(function (d) {
         codetext = codetext + "strategy[CC.DPQUERIES][\"" + d['Level'] + "\"] = ("
         for (var j in d)
-            if ((j!=='Level') && (!isNaN(parseInt(d[j])))) codetext = codetext + '"' + j + '", '
+            cb = document.getElementById("cb"+j)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!cb.checked)) codetext = codetext + '"' + j + '", '
         codetext = codetext + ")\n"
     })
 
