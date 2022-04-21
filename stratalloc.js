@@ -1,7 +1,12 @@
+// var example=[
+// 	{"Level":"State", "hhgq":"1", "cenrace":"10"},
+// 	{"Level":"County", "hhgq":"3", "cenrace":"2"},
+// 	{"Level":"Tract", "hhgq":"1", "cenrace":"6"}
+// ]
+
 var example=[
-	{"Level":"State", "hhgq":"1", "cenrace":"10"},
-	{"Level":"County", "hhgq":"3", "cenrace":"2"},
-	{"Level":"Tract", "hhgq":"1", "cenrace":"6"}
+    {"Query": "hhgq", "State":"1","County":"3","Tract":"1"},
+    {"Query": "cenrace", "State":"10","County":"2","Tract":"6"}
 ]
 
 
