@@ -138,6 +138,44 @@ function PrintPythonCode(data) {
             if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (unitqueries[j])) codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
         codetext = codetext + ")\n"
     })
+
+    codetext += "\n\n OR \n\n"
+
+    codetext += "strategy[CC.DPQUERIES] = {\n"
+    data.forEach(function (d) {
+        codetext += '\t"' + d['Level'] + '": ('
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!unitqueries[j])) codetext = codetext + '"' + j + '", '
+        codetext += ")\n"
+    })
+    codetext += "}\n"
+
+    codetext += "strategy[CC.QUERIESPROP] = {\n"
+    data.forEach(function (d) {
+        codetext += '\t"' + d['Level'] + '": ('
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!unitqueries[j])) codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
+        codetext = codetext + ")\n"
+    })
+    codetext += "}\n"
+
+    codetext += "strategy[CC.UNITDPQUERIES] = {\n"
+    data.forEach(function (d) {
+        codetext += '\t"' + d['Level'] + '": ('
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (unitqueries[j])) codetext = codetext + '"' + j + '", '
+        codetext = codetext + ")\n"
+    })
+    codetext += "}\n"
+
+    codetext += "strategy[CC.UNITDPQUERIES] = {\n"
+    data.forEach(function (d) {
+        codetext += '\t"' + d['Level'] + '": ('
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (unitqueries[j])) codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
+        codetext = codetext + ")\n"
+    })
+    codetext += "}\n"
 	
 	codetext += "\n\n" + JSON.stringify(data)
 
