@@ -1,8 +1,13 @@
-var example=[
-	{"Level":"State", "hhgq":"1", "cenrace":"10"},
-	{"Level":"County", "hhgq":"3", "cenrace":"2"},
-	{"Level":"Tract", "hhgq":"1", "cenrace":"6"}
-]
+// var example=[
+// 	{"Level":"State", "hhgq":"1", "cenrace":"10"},
+// 	{"Level":"County", "hhgq":"3", "cenrace":"2"},
+// 	{"Level":"Tract", "hhgq":"1", "cenrace":"6"}
+// ]
+// var unitqueries = {}//= {'hhgq': false, 'cenrace': true}
+
+var example = [{"Level":"US","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"662","tenvacgq":"162","multig * hisp * hhtenshort":"500","hisp * hhtenshort":"134","partner_type_own_child_status * sex * hhtenshort":"500","coupled_hh_type * hisp * hhtenshort":"500","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"162","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"162","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"134","hisp * hhtenshort * race":"134"},{"Level":"State","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"2750","tenvacgq":"2250","multig * hisp * hhtenshort":"500","hisp * hhtenshort":"135","partner_type_own_child_status * sex * hhtenshort":"500","coupled_hh_type * hisp * hhtenshort":"500","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"2250","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"2250","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"135","hisp * hhtenshort * race":"134"},{"Level":"County","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"700","tenvacgq":"700","multig * hisp * hhtenshort":"500","hisp * hhtenshort":"135","partner_type_own_child_status * sex * hhtenshort":"500","coupled_hh_type * hisp * hhtenshort":"500","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"700","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"700","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"135","hisp * hhtenshort * race":"None"},{"Level":"Prim","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"614","tenvacgq":"614","multig * hisp * hhtenshort":"614","hisp * hhtenshort":"135","partner_type_own_child_status * sex * hhtenshort":"614","coupled_hh_type * hisp * hhtenshort":"614","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"614","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"614","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"135","hisp * hhtenshort * race":"None"},{"Level":"Tract_Subset_Group","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"614","tenvacgq":"614","multig * hisp * hhtenshort":"614","hisp * hhtenshort":"135","partner_type_own_child_status * sex * hhtenshort":"614","coupled_hh_type * hisp * hhtenshort":"614","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"614","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"614","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"135","hisp * hhtenshort * race":"None"},{"Level":"Tract_Subset","sex * hisp * hhtenshort * race * family_nonfamily_size":"1950","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"1950","detailed":"1950","tenvacgq":"1950","multig * hisp * hhtenshort":"None","hisp * hhtenshort":"None","partner_type_own_child_status * sex * hhtenshort":"None","coupled_hh_type * hisp * hhtenshort":"None","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"None","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hisp * hhtenshort * race":"None"},{"Level":"Block_Group","sex * hisp * hhtenshort * race * family_nonfamily_size":"672","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"672","detailed":"672","tenvacgq":"672","multig * hisp * hhtenshort":"None","hisp * hhtenshort":"None","partner_type_own_child_status * sex * hhtenshort":"None","coupled_hh_type * hisp * hhtenshort":"None","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"None","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hisp * hhtenshort * race":"None"},{"Level":"Block","sex * hisp * hhtenshort * race * family_nonfamily_size":"25","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"25","detailed":"25","tenvacgq":"25","multig * hisp * hhtenshort":"None","hisp * hhtenshort":"None","partner_type_own_child_status * sex * hhtenshort":"None","coupled_hh_type * hisp * hhtenshort":"None","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"None","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hisp * hhtenshort * race":"None"}]
+var unitqueries = {'tenvacgq': true}
+
 
 
 PrintTable(example);
@@ -51,18 +56,16 @@ function PrintTable(example) {
     row = d3.select("#example").append("tr");
     for (var j in example[0]) {
         td = row.append("td")
-        if (j!=='Level') td.attr("align", "center").append("input").attr("type", "checkbox").attr("id", "cb"+j)
+        if (j!=='Level') {
+            let cb = td.attr("align", "center").append("input").data([{"col": j}]).attr("type", "checkbox").attr("id", "cb"+j)
+            if (unitqueries[j]) cb.attr("checked","1")
+            cb.on("change", function (moevent) {
+                unitqueries[moevent.target.__data__['col']] = !unitqueries[moevent.target.__data__['col']];
+                PrintTable(example)
+            })
+        }
+
         else td.text("UnitQuery")
-            //.label("Del Qry").data([{"col": j}])
-        //     .on("click", function(moevent) {
-        //         for (var i in example) {
-        //             d = moevent.target.__data__
-        //             delete example[i][d['col']]
-        //         }
-        //         d3.select("#albutton").on('click', function (d) {AddLevel(example)})
-        //         d3.select("#aqbutton").on('click', function (d) {AddQuery(example)})
-        //         PrintTable(example);
-        // })
     }
     row = d3.select("#example").append("tr");
     for (var j in example[0]) {
@@ -111,15 +114,28 @@ function PrintPythonCode(data) {
     data.forEach(function (d) {
         codetext = codetext + "strategy[CC.DPQUERIES][\"" + d['Level'] + "\"] = ("
         for (var j in d)
-            cb = document.getElementById("cb"+j)
-            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!cb.checked)) codetext = codetext + '"' + j + '", '
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!unitqueries[j])) codetext = codetext + '"' + j + '", '
         codetext = codetext + ")\n"
     })
 
     data.forEach(function (d) {
         codetext = codetext + "strategy[CC.QUERIESPROP][\"" + d['Level'] + "\"] = ("
         for (var j in d)
-            if ((j!=='Level') && (!isNaN(parseInt(d[j])))) codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!unitqueries[j])) codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
+        codetext = codetext + ")\n"
+    })
+
+    data.forEach(function (d) {
+        codetext = codetext + "strategy[CC.UNITDPQUERIES][\"" + d['Level'] + "\"] = ("
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (unitqueries[j])) codetext = codetext + '"' + j + '", '
+        codetext = codetext + ")\n"
+    })
+
+    data.forEach(function (d) {
+        codetext = codetext + "strategy[CC.UNITQUERIESPROP][\"" + d['Level'] + "\"] = ("
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (unitqueries[j])) codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
         codetext = codetext + ")\n"
     })
 	
@@ -127,45 +143,41 @@ function PrintPythonCode(data) {
 
     document.getElementById('total').textContent = total + "/" + denom + "  (" + total / denom + ")"
     d3.select("#python").text(codetext)
-        // "test_strategy = defaultdict(lambda: defaultdict(dict))  # So as to avoid having to specify empty dicts and defaultdicts\n" +
-        // "        test_strategy.update({\n" +
-        // "            CC.GEODICT_GEOLEVELS: levels,\n" +
-        // "            CC.DPQUERIES + \"default\": (\n" +
-        // "                \"sex * hhage\",\n" +
-        // "                \"sex * hisp * race * hhtype_dhch\",\n" +
-        // "                \"elderly * sex * hhtype_dhch\",\n" +
-        // "                \"hisp * race\",\n" +
-        // "                \"hhage * hhtype_dhch * sex\",\n" +
-        // "                \"detailed\"),\n" +
-        // "            CC.QUERIESPROP + \"default\": (tuple(Fr(num, 100) for num in (20, 20, 20, 15, 10, 10))),\n" +
-        // "            # CC.DPQUERIES: {},\n" +
-        // "            # CC.QUERIESPROP: {},\n" +
-        // "            # CC.UNITDPQUERIES: {},\n" +
-        // "            # CC.UNITQUERIESPROP: {},\n" +
-        // "            # CC.VACANCYDPQUERIES: {},\n" +
-        // "            # CC.VACANCYQUERIESPROP: {},\n" +
-        // "        })\n" +
-        // "\n" +
-        // "        def queries(level):\n" +
-        // "            return test_strategy[CC.DPQUERIES + \"default\"]\n" +
-        // "\n" +
-        // "        def allocation(level):\n" +
-        // "            if level == CC.GEOLEVEL_COUNTY:\n" +
-        // "                return tuple(Fr(num, 100) for num in (10, 30, 20, 15, 10, 10))\n" +
-        // "            if level == CC.GEOLEVEL_TRACT:\n" +
-        // "                return tuple(Fr(num, 100) for num in ( 5, 35, 20, 15, 10, 10))\n" +
-        // "            if level == CC.GEOLEVEL_BLOCK_GROUP:\n" +
-        // "                return tuple(Fr(num, 100) for num in ( 1, 39, 20, 15, 10, 10))\n" +
-        // "            if level == CC.GEOLEVEL_BLOCK:\n" +
-        // "                return tuple(Fr(num, 100) for num in (39,  1, 20, 15, 10, 10))\n" +
-        // "            return test_strategy[CC.QUERIESPROP + \"default\"]\n" +
-        // "\n" +
-        // "        for level in test_strategy[CC.GEODICT_GEOLEVELS]:\n" +
-        // "            test_strategy[CC.DPQUERIES][level] = queries(level)\n" +
-        // "            test_strategy[CC.QUERIESPROP][level] = allocation(level)\n" +
-        // "            test_strategy[CC.UNITDPQUERIES][level] = (\"tenvacgq\", \"vacantoccupied\", )\n" +
-        // "            test_strategy[CC.UNITQUERIESPROP][level] = (Fr(4, 100), Fr(1, 100), )\n" +
-        // "\n" +
-        // "        return test_strategy")
-    d3.select("body").selectAll("img").data(example).enter().append("img").attr("src",function(d) {return d.Image})
 }
+
+var fileInput = d3.select('#files').node();
+var uploadButton = d3.selectAll('#upload');
+
+//find uploaded filename
+var fname,ext;
+
+uploadButton.on('click', function() {
+    if (!window.FileReader) {
+        alert('Your browser is not supported')
+    }
+
+    // Create a reader object
+    var reader = new FileReader();
+    if (fileInput.files.length) {
+
+        fname = document.getElementById("files").value.split('\\');
+        fname = fname[fname.length-1].split('/');
+        fname = fname[fname.length-1];
+        var nandext=fname.split('.');
+        ext = nandext[nandext.length-1];
+
+        var textFile = fileInput.files[0];
+        reader.readAsBinaryString(textFile);
+        reader.onload = function processFile(e) {
+            var csvdata = (ext==='xlsx')?to_csv(XLSX.read(e.target.result, {type: 'binary'})):((ext==='csv')?e.target.result:"");
+            if (csvdata!=="") {
+                example = d3.csvParse(csvdata)
+                PrintTable(example);
+            }
+            else alert('Only CSV and XLSX files are supported')
+        };
+    } else {
+        alert('Please upload a file before continuing')
+    }
+});
+

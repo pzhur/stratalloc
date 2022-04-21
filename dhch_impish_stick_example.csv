@@ -1,0 +1,9 @@
+Level,sex * hisp * hhtenshort * race * family_nonfamily_size,sex * hisp * hhtenshort * race * hhage * family_nonfamily_size,detailed,tenvacgq,multig * hisp * hhtenshort,hisp * hhtenshort,partner_type_own_child_status * sex * hhtenshort,coupled_hh_type * hisp * hhtenshort,sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize,sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize,hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize,hisp * hhtenshort * race
+US,None,None,662,162,500,134,500,500,162,162,134,134
+State,None,None,2750,2250,500,135,500,500,2250,2250,135,134
+County,None,None,700,700,500,135,500,500,700,700,135,None
+Prim,None,None,614,614,614,135,614,614,614,614,135,None
+Tract_Subset_Group,None,None,614,614,614,135,614,614,614,614,135,None
+Tract_Subset,1950,1950,1950,1950,None,None,None,None,None,None,None,None
+Block_Group,672,672,672,672,None,None,None,None,None,None,None,None
+Block,25,25,25,25,None,None,None,None,None,None,None,None

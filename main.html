@@ -14,7 +14,10 @@
 <body>
 <script src="d3.min.js"></script>
 <h1>Query Strategy Budget Allocator</h1>
-<label for="denom">Denom:</label><input id="denom" value="100" onmouseout="PrintPythonCode(example)"><br><br>
+<h3>Upload your CSV or XLSX:</h3>
+<input type=file id=files />
+<button id=upload>Upload</button><br><br>
+<label for="denom">Denom:</label><input id="denom" value="10000" onmouseout="PrintPythonCode(example)"><br><br>
 <!--<label for="total">Total budget:</label><input id="total"><br><br>-->
 Total budget:
 <text id="total"></text><br><br>
