@@ -26,7 +26,7 @@ function PrintTable(example) {
     for (var i = 0; i < example.length; i++) {
         row = d3.select("#example").append("tr");
         for (var j in example[i])
-            row.append("td").data([{"row": i, "col": j, "data": example}]).text(example[i][j])
+            td = row.append("td").data([{"row": i, "col": j, "data": example}]).append("input").attr("type", "number").attr("value",(example[i][j]))
                 .attr("style", function(d) {
                     val = parseInt(example[d.row][d.col])
                     if (isNaN(val)) return "background-color: hsl(0,100%,100%)"
@@ -35,12 +35,17 @@ function PrintTable(example) {
                     l = 100 - Math.round((val - min) / (max - min) * 50)
                     return "background-color: hsl(116,40%," + l + "%)"
                 })
-                .attr("contenteditable", true)
-                .on('mouseout', function (moevent) {
-                    d = moevent.fromElement.__data__
-                    example[d.row][d.col] = this.innerText;
+                .on('change', function (moevent) {
+                    d = moevent.target.__data__
+                    example[d.row][d.col] = this.value;
                     PrintTable(example);
                 });
+                // .attr("contenteditable", true)
+                // .on('mouseout', function (moevent) {
+                //     d = moevent.fromElement.__data__
+                //     example[d.row][d.col] = this.innerText;
+                //     PrintTable(example);
+                // });
 		row.append("td").append("input").attr("type", "button").attr("value", "Del Lev").data([{"row": i, "col": j, "data": example}])
 				.on("click", function(moevent) {
 					d = moevent.target.__data__
