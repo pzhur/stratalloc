@@ -7,7 +7,15 @@
 
 var example = [{"Level":"US","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"662","tenvacgq":"162","multig * hisp * hhtenshort":"500","hisp * hhtenshort":"134","partner_type_own_child_status * sex * hhtenshort":"500","coupled_hh_type * hisp * hhtenshort":"500","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"162","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"162","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"134","hisp * hhtenshort * race":"134"},{"Level":"State","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"2750","tenvacgq":"2250","multig * hisp * hhtenshort":"500","hisp * hhtenshort":"135","partner_type_own_child_status * sex * hhtenshort":"500","coupled_hh_type * hisp * hhtenshort":"500","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"2250","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"2250","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"135","hisp * hhtenshort * race":"134"},{"Level":"County","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"700","tenvacgq":"700","multig * hisp * hhtenshort":"500","hisp * hhtenshort":"135","partner_type_own_child_status * sex * hhtenshort":"500","coupled_hh_type * hisp * hhtenshort":"500","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"700","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"700","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"135","hisp * hhtenshort * race":"None"},{"Level":"Prim","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"614","tenvacgq":"614","multig * hisp * hhtenshort":"614","hisp * hhtenshort":"135","partner_type_own_child_status * sex * hhtenshort":"614","coupled_hh_type * hisp * hhtenshort":"614","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"614","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"614","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"135","hisp * hhtenshort * race":"None"},{"Level":"Tract_Subset_Group","sex * hisp * hhtenshort * race * family_nonfamily_size":"None","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"None","detailed":"614","tenvacgq":"614","multig * hisp * hhtenshort":"614","hisp * hhtenshort":"135","partner_type_own_child_status * sex * hhtenshort":"614","coupled_hh_type * hisp * hhtenshort":"614","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"614","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"614","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"135","hisp * hhtenshort * race":"None"},{"Level":"Tract_Subset","sex * hisp * hhtenshort * race * family_nonfamily_size":"1950","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"1950","detailed":"1950","tenvacgq":"1950","multig * hisp * hhtenshort":"None","hisp * hhtenshort":"None","partner_type_own_child_status * sex * hhtenshort":"None","coupled_hh_type * hisp * hhtenshort":"None","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"None","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hisp * hhtenshort * race":"None"},{"Level":"Block_Group","sex * hisp * hhtenshort * race * family_nonfamily_size":"672","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"672","detailed":"672","tenvacgq":"672","multig * hisp * hhtenshort":"None","hisp * hhtenshort":"None","partner_type_own_child_status * sex * hhtenshort":"None","coupled_hh_type * hisp * hhtenshort":"None","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"None","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hisp * hhtenshort * race":"None"},{"Level":"Block","sex * hisp * hhtenshort * race * family_nonfamily_size":"25","sex * hisp * hhtenshort * race * hhage * family_nonfamily_size":"25","detailed":"25","tenvacgq":"25","multig * hisp * hhtenshort":"None","hisp * hhtenshort":"None","partner_type_own_child_status * sex * hhtenshort":"None","coupled_hh_type * hisp * hhtenshort":"None","sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize":"None","sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize":"None","hisp * hhtenshort * race":"None"}]
 var unitqueries = {'tenvacgq': true}
-
+var csv = "Level,multig * hisp * hhtenshort,hisp * hhtenshort,hisp * hhtenshort * race,partner_type_own_child_status * sex * hhtenshort,coupled_hh_type * hisp * hhtenshort,sex * hisp * hhtenshort * race * DetailedCoupleTypeMultGenDetOwnChildSize,sex * hisp * hhtenshort * race * hhage * DetailedCoupleTypeMultGenDetOwnChildSize,hhtenshort * hhage * DetailedCoupleTypeMultGenDetOwnChildSize,detailed,sex * hisp * hhtenshort * race * family_nonfamily_size,sex * hisp * hhtenshort * race * hhage * family_nonfamily_size\n" +
+    "Block,,,,,,,,,25,25,25\n" +
+    "Block_Group,,,,,,,,,672,672,672\n" +
+    "Tract_Subset,,,,,,,,,1950,1950,1950\n" +
+    "Tract_Subset_Group,614,135,,614,614,614,614,135,614,,\n" +
+    "Prim,614,135,,614,614,614,614,135,614,,\n" +
+    "County,500,135,,500,500,700,700,135,700,,\n" +
+    "State,500,135,134,500,500,2250,2250,135,2750,,\n" +
+    "US,500,134,134,500,500,162,162,134,662,,\n"
 
 
 PrintTable(example);
@@ -185,6 +193,7 @@ function PrintPythonCode(data) {
 
 var fileInput = d3.select('#files').node();
 var uploadButton = d3.selectAll('#upload');
+var loadButton = d3.selectAll('#load')
 
 //find uploaded filename
 var fname,ext;
@@ -208,6 +217,7 @@ uploadButton.on('click', function() {
         reader.readAsBinaryString(textFile);
         reader.onload = function processFile(e) {
             var csvdata = (ext==='xlsx')?to_csv(XLSX.read(e.target.result, {type: 'binary'})):((ext==='csv')?e.target.result:"");
+            debugger;
             if (csvdata!=="") {
                 example = d3.csvParse(csvdata)
                 PrintTable(example);
@@ -216,6 +226,15 @@ uploadButton.on('click', function() {
         };
     } else {
         alert('Please upload a file before continuing')
+    }
+});
+
+loadButton.on('click', function() {
+    csvdata = document.getElementById("csvtext").value
+    debugger;
+    if (csvdata!=="") {
+        example = d3.csvParse(csvdata)
+        PrintTable(example);
     }
 });
 
