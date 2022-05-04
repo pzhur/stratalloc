@@ -217,7 +217,6 @@ uploadButton.on('click', function() {
         reader.readAsBinaryString(textFile);
         reader.onload = function processFile(e) {
             var csvdata = (ext==='xlsx')?to_csv(XLSX.read(e.target.result, {type: 'binary'})):((ext==='csv')?e.target.result:"");
-            debugger;
             if (csvdata!=="") {
                 example = d3.csvParse(csvdata)
                 PrintTable(example);
@@ -231,7 +230,6 @@ uploadButton.on('click', function() {
 
 loadButton.on('click', function() {
     csvdata = document.getElementById("csvtext").value
-    debugger;
     if (csvdata!=="") {
         example = d3.csvParse(csvdata)
         PrintTable(example);
