@@ -88,6 +88,26 @@ function PrintTable(example) {
         PrintTable(example);
         })
     }
+
+    // Uneditable table with floats
+    d3.select("#float").html("");
+    denom = document.getElementById('denom').value
+    row = d3.select("#float").append("tr").selectAll("th").data(Object.keys(example[0])).enter().append("th").text(function(d) {return d});
+
+    for (var i = 0; i < example.length; i++) {
+        row = d3.select("#float").append("tr");
+        for (var j in example[i])
+            row.append("td").data([{"row": i, "col": j, "data": example}]).text(isNaN(parseInt(example[i][j]))?example[i][j]:example[i][j]/denom)
+                .attr("style", function(d) {
+                    val = parseInt(example[d.row][d.col])
+                    if (isNaN(val)) return "background-color: hsl(0,100%,100%)"
+                    max = Math.max(...example.map(d => Math.max(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
+                    min = Math.min(...example.map(d => Math.min(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
+                    l = 100 - Math.round((val - min) / (max - min) * 50)
+                    return "background-color: hsl(116,40%," + l + "%)"
+                })
+    }
+
     PrintPythonCode(example);
 }
 
