@@ -174,7 +174,7 @@ function PrintPythonCode(data) {
         codetext += '\t"' + d['Level'] + '": ('
         for (var j in d)
             if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!unitqueries[j])) codetext = codetext + '"' + j + '", '
-        codetext += ")\n"
+        codetext += "),\n"
     })
     codetext += "}\n"
 
@@ -183,7 +183,7 @@ function PrintPythonCode(data) {
         codetext += '\t"' + d['Level'] + '": ('
         for (var j in d)
             if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!unitqueries[j])) codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
-        codetext = codetext + ")\n"
+        codetext = codetext + "),\n"
     })
     codetext += "}\n"
 
@@ -192,7 +192,7 @@ function PrintPythonCode(data) {
         codetext += '\t"' + d['Level'] + '": ('
         for (var j in d)
             if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (unitqueries[j])) codetext = codetext + '"' + j + '", '
-        codetext = codetext + ")\n"
+        codetext = codetext + "),\n"
     })
     codetext += "}\n"
 
@@ -201,7 +201,7 @@ function PrintPythonCode(data) {
         codetext += '\t"' + d['Level'] + '": ('
         for (var j in d)
             if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (unitqueries[j])) codetext = codetext + 'Fr(' + d[j] + ', ' + parseInt(denom) + '), '
-        codetext = codetext + ")\n"
+        codetext = codetext + "),\n"
     })
     codetext += "}\n"
 	
