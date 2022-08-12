@@ -108,6 +108,30 @@ function PrintTable(example) {
                 })
     }
 
+    // Uneditable table with geolevel totals
+    d3.select("#geoleveltotals").html("");
+    denom = document.getElementById('denom').value
+    row = d3.select("#geoleveltotals").append("tr")
+    row.append("th").text("Geolevel Name")
+    row.append("th").text("Geolevel Total")
+    row.append("th").text("Geolevel Total Prop")
+
+    total = 0
+    example.forEach(function(d) {
+        for (var j in d) {
+            if ((j!=='Level') && (!isNaN(parseInt(d[j])))) total = total + parseInt(d[j])
+        }
+    })
+    for (var i = 0; i < example.length; i++) {
+        gl_total = 0
+        row = d3.select("#geoleveltotals").append("tr");
+        for (var j in example[i])
+            gl_total += isNaN(parseInt(example[i][j]))?0:parseInt(example[i][j])
+        row.append("td").text(example[i].Level)
+        row.append("td").text(gl_total/denom)
+        row.append("td").text(Math.round(gl_total/total*10000)/100 + "%")
+    }
+
     PrintPythonCode(example);
 }
 
