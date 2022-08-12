@@ -196,7 +196,7 @@ function PrintPythonCode(data) {
     })
     codetext += "}\n"
 
-    codetext += "strategy[CC.UNITDPQUERIES] = {\n"
+    codetext += "strategy[CC.UNITQUERIESPROP] = {\n"
     data.forEach(function (d) {
         codetext += '\t"' + d['Level'] + '": ('
         for (var j in d)
