@@ -40,8 +40,19 @@ function PrintTable(example) {
                     if (isNaN(val)) return "background-color: hsl(0,100%,100%)"
                     max = Math.max(...example.map(d => Math.max(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
                     min = Math.min(...example.map(d => Math.min(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
-                    l = 100 - Math.round((val - min) / (max - min) * 50)
-                    return "background-color: hsl(116,40%," + l + "%)"
+                    if (min >= 0)  {
+                        l = 100 - Math.round((val - min) / (max - min) * 50)
+                        h = "116"
+                    } else {
+                        if (val >= 0) {
+                            l = 100 - Math.round((val) / (max) * 50)
+                            h = "116"
+                        } else {
+                            l = 100 - Math.round((val - min) / (-min) * 50)
+                            h = "0"
+                        }
+                    }
+                    return "background-color: hsl(" + h + ",40%," + l + "%)"
                 })
                 .attr("contenteditable", true)
                 .on('mouseout', function (moevent) {
@@ -103,8 +114,19 @@ function PrintTable(example) {
                     if (isNaN(val)) return "background-color: hsl(0,100%,100%)"
                     max = Math.max(...example.map(d => Math.max(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
                     min = Math.min(...example.map(d => Math.min(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
-                    l = 100 - Math.round((val - min) / (max - min) * 50)
-                    return "background-color: hsl(116,40%," + l + "%)"
+                    if (min >= 0)  {
+                            l = 100 - Math.round((val - min) / (max - min) * 50)
+                            h = "116"
+                    } else {
+                        if (val >= 0) {
+                            l = 100 - Math.round((val) / (max) * 50)
+                            h = "116"
+                        } else {
+                            l = 100 - Math.round((val - min) / (-min) * 50)
+                            h = "0"
+                        }
+                    }
+                    return "background-color: hsl(" + h + ",40%," + l + "%)"
                 })
     }
 
