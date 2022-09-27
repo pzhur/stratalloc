@@ -48,7 +48,7 @@ function PrintTable(example) {
                             l = 100 - Math.round((val) / (max) * 50)
                             h = "116"
                         } else {
-                            l = 100 - Math.round((val - min) / (-min) * 50)
+                            l = 100 - Math.round((val) / (min) * 50)
                             h = "0"
                         }
                     }
@@ -122,7 +122,7 @@ function PrintTable(example) {
                             l = 100 - Math.round((val) / (max) * 50)
                             h = "116"
                         } else {
-                            l = 100 - Math.round((val - min) / (-min) * 50)
+                            l = 100 - Math.round((val) / (min) * 50)
                             h = "0"
                         }
                     }
