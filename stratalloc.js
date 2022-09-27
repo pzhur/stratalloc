@@ -45,10 +45,16 @@ function PrintTable(example) {
                         h = "116"
                     } else {
                         if (val >= 0) {
-                            l = 100 - Math.round((val) / (max) * 50)
+                            // Use this to have separate scale on negatives
+                            // l = 100 - Math.round((val) / (max) * 50)
+                            // Use this to have the same scale on negatives, scaled to the larger absolute value of min or max
+                            l = 100 - Math.round((val) / (mag) * 50)
                             h = "116"
                         } else {
-                            l = 100 - Math.round((val) / (min) * 50)
+                            // Use this to have separate scale on negatives
+                            // l = 100 - Math.round((val) / (min) * 50)
+                            // Use this to have the same scale on negatives, scaled to the larger absolute value of min or max
+                            l = 100 - Math.round((val) / (-mag) * 50)
                             h = "0"
                         }
                     }
@@ -114,15 +120,22 @@ function PrintTable(example) {
                     if (isNaN(val)) return "background-color: hsl(0,100%,100%)"
                     max = Math.max(...example.map(d => Math.max(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
                     min = Math.min(...example.map(d => Math.min(...Object.values(d).map(x => parseInt(x)).filter(x => !isNaN(x)))))
+                    mag = Math.max(Math.abs(min), Math.abs(max))
                     if (min >= 0)  {
                             l = 100 - Math.round((val - min) / (max - min) * 50)
                             h = "116"
                     } else {
                         if (val >= 0) {
-                            l = 100 - Math.round((val) / (max) * 50)
+                            // Use this to have separate scale on negatives
+                            // l = 100 - Math.round((val) / (max) * 50)
+                            // Use this to have the same scale on negatives, scaled to the larger absolute value of min or max
+                            l = 100 - Math.round((val) / (mag) * 50)
                             h = "116"
                         } else {
-                            l = 100 - Math.round((val) / (min) * 50)
+                            // Use this to have separate scale on negatives
+                            // l = 100 - Math.round((val) / (min) * 50)
+                            // Use this to have the same scale on negatives, scaled to the larger absolute value of min or max
+                            l = 100 - Math.round((val) / (-mag) * 50)
                             h = "0"
                         }
                     }
