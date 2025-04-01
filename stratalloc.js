@@ -286,7 +286,7 @@ function PrintPythonCode(data) {
 
     codetext += "strategy[CC.QUERIESPROP] = {gl: tuple(Fr(num, " + parseInt(denom) + ") for num in nums)  for gl,nums in numerators.items()}\n"
 
-    codetext += "unitnumerators = {\n"
+    codetext += "strategy[CC.UNITDPQUERIES] = {\n"
     data.forEach(function (d) {
         codetext += '\t"' + d['Level'] + '": ('
         for (var j in d)
@@ -295,7 +295,7 @@ function PrintPythonCode(data) {
     })
     codetext += "}\n"
 
-    codetext += "strategy[CC.UNITQUERIESPROP] = {\n"
+    codetext += "unitnumerators = {\n"
     data.forEach(function (d) {
         codetext += '\t"' + d['Level'] + '": ('
         for (var j in d)
