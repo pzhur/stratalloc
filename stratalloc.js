@@ -263,6 +263,50 @@ function PrintPythonCode(data) {
         codetext = codetext + "),\n"
     })
     codetext += "}\n"
+
+    codetext += "\n\n OR \n\n"
+
+    codetext += "strategy[CC.DPQUERIES] = {\n"
+    data.forEach(function (d) {
+        codetext += '\t"' + d['Level'] + '": ('
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!unitqueries[j])) codetext = codetext + '"' + j + '", '
+        codetext += "),\n"
+    })
+    codetext += "}\n"
+
+    codetext += "numerators = {\n"
+    data.forEach(function (d) {
+        codetext += '\t"' + d['Level'] + '": ('
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (!unitqueries[j])) codetext = codetext + d[j] + ', '
+        codetext = codetext + "),\n"
+    })
+    codetext += "}\n"
+
+    codetext += "strategy[CC.QUERIESPROP] = {gl: tuple(Fr(num, " + parseInt(denom) + ") for num in nums)  for gl,nums in numerators.items()}\n"
+
+    codetext += "unitnumerators = {\n"
+    data.forEach(function (d) {
+        codetext += '\t"' + d['Level'] + '": ('
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (unitqueries[j])) codetext = codetext + '"' + j + '", '
+        codetext = codetext + "),\n"
+    })
+    codetext += "}\n"
+
+    codetext += "strategy[CC.UNITQUERIESPROP] = {\n"
+    data.forEach(function (d) {
+        codetext += '\t"' + d['Level'] + '": ('
+        for (var j in d)
+            if ((j!=='Level') && (!isNaN(parseInt(d[j]))) && (unitqueries[j])) codetext = codetext + d[j] + ', '
+        codetext = codetext + "),\n"
+    })
+    codetext += "}\n"
+
+    codetext += "strategy[CC.UNITQUERIESPROP] = {gl: tuple(Fr(num, " + parseInt(denom) + ") for num in nums)  for gl,nums in unitnumerators.items()}\n"
+
+
 	
 	codetext += "\n\n" + JSON.stringify(data)
 
